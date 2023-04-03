@@ -1,0 +1,224 @@
+/* to-do: 
+    check on picture sizing,
+    set interactive states, 
+    build menu, 
+    > 768px, 
+    fix typography, 
+    DRY 
+*/
+
+:root {
+    /* color set */
+    --soft-orange: hsl(35, 77%, 62%);
+    --soft-red: hsl(5, 85%, 63%);
+       
+    --off-white: hsl(36, 100%, 99%);
+    --grayish-blue: hsl(233, 8%, 79%);
+    --dark-grayish-blue: hsl(236, 13%, 42%);
+    --very-dark-blue: hsl(240, 100%, 5%);
+
+    --fs-family: 'Inter', sans-serif;
+    --fs-400: 400;
+    --fs-700: 700;
+    --fs-800: 800;
+
+    --spacing1: 18px;
+    --spacing2: 28px;
+    --spacing3: 32px;
+    --spacing4: 44px;
+    --spacing5: 56px;
+    --spacing6: 64px;
+
+}
+
+/* Resets */
+html {
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+    margin:0;
+    padding:0;
+}
+
+img, picture {
+    display:block;
+    max-width:100%;
+    height:auto;
+}
+
+body { 
+    font-family: var(--fs-family);
+    font-weight: var(--fs-400);
+    color: var(--very-dark-blue)
+}
+
+/* Typography */
+h2, h3, h4, h5, h6, p, a {
+    line-height: 1.5;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: var(--fs-800);
+}
+
+h2 {
+    font-size: 25px;
+    font-weight: var(--fs-800);
+}
+
+h3{
+    font-size: 20px;
+    font-weight: var(--fs-700);
+}
+
+p {
+    color: var(--dark-grayish-blue);
+    margin-block-end: var(--spacing1);
+}
+
+/* Utilities */
+
+header, section, .new-stories-container {
+    padding-block: var(--spacing2);
+    padding-inline: var(--spacing1);
+    outline:1px solid red;
+}
+
+.button {
+    display:inline-block;
+    padding-block: var(--spacing1);
+    padding-inline: var(--spacing2);
+
+    color: var(--off-white);
+    background-color:var(--soft-red);
+    
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: 7px;
+}
+
+/* Components */
+
+/* Header & Nav */
+header .title {
+    height: 40px;
+    color: var(--very-dark-blue);
+}
+
+.logo-link{
+    text-decoration: none;
+}
+
+nav {
+    display:none;
+}
+nav ul li {
+    list-style: none;
+    padding:var(--spacing1);
+}
+
+/* Hero */
+.hero {
+    padding-block-start: 0px;
+}
+
+.hero-image {
+    padding-block-end: var(--spacing2)
+}
+
+.hero-title{
+    font-size:40px;
+    line-height: 1;
+    padding-block-end: var(--spacing1);
+}
+
+.hero-details p:last-of-type {
+    margin-block-end:var(--spacing2);
+}
+
+/* New Stories */
+.new-stories-container {
+    background-color: var(--very-dark-blue);
+}
+.new-stories-title {
+    color: var(--soft-orange);
+    margin-block-end: var(--spacing3) ;
+}
+
+.new-story {
+    border-bottom:1px solid white;
+    margin-block-end: var(--spacing3);
+}
+
+.new-story:last-of-type, .new-story:last-of-type p {
+    margin-block-end: 0px;
+}
+
+.new-story:last-of-type{
+    border-bottom:none;
+}
+
+.new-story a {
+    text-decoration: none;
+    color: var(--off-white);
+}
+
+.new-story h3 {
+    line-height: 2;
+}
+
+.new-story p {
+    margin-block-end: var(--spacing3);
+}
+
+/* Numbered Stories */
+.numbered-story{
+    display:grid;
+    /* to-do: set col 2 width */
+    grid-template-columns: minmax(100px, 200px) minmax(2fr, auto); 
+    column-gap: var(--spacing2);
+    margin-block-end: var(--spacing3);
+
+}
+
+.numbered-story-details {
+    grid-column-start: 2;
+    grid-column-end: 3;
+
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+}
+
+.numbered-story-details .number {
+    color: var(--grayish-blue);
+    font-weight: var(--fs-800);
+    font-size:23px;
+    line-height: 1;
+}
+
+.numbered-story-details .numbered-story-link {
+    text-decoration: none;
+    color: var(--very-dark-blue);
+    font-size: 17px;
+}
+
+.numbered-story-details p {
+    margin-block-end: 0px;
+}
+
+
+@media screen and (max-width: 375px) {}
+@media screen and (min-width: 1440px) {}
+
+.attribution {
+    font-size:10px;
+    color:var(--dark-grayish-blue);
+    padding:var(--spacing1);
+}
