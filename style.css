@@ -1,14 +1,3 @@
-/* TO DO: 
-/* reduce max-size on main
-/* font size adjust on full size nav
-/* font color on nav links
-/* reduce padding on new-stories container
-/* reduce padding between h2 and 1st new-story
-/* increase padding between news-story p and border 
-/* reduce font size on hero-title
-/* set space-between on numbered-story-details
-*/
-
 :root {
 	/* color set */
 	--soft-orange: hsl(35, 77%, 62%);
@@ -34,7 +23,7 @@
 /* Resets */
 html {
 	box-sizing: border-box;
-	font-size: 16px;
+	font-size: 15px;
 }
 
 *,
@@ -108,7 +97,7 @@ section,
 	text-transform: uppercase;
 	text-align: center;
 	text-decoration: none;
-	letter-spacing: 0.5rem;
+	letter-spacing: 0.25rem;
 }
 
 .button:hover,
@@ -155,8 +144,7 @@ header .title img {
 
 #primary-navigation ul li a {
 	text-decoration: none;
-	color: var(--very-dark-blue);
-	font-size: 1.2rem;
+	color: var(--dark-grayish-blue);
 }
 
 #primary-navigation ul li a:hover,
@@ -180,11 +168,12 @@ header .title img {
 
 	#primary-navigation ul {
 		position: fixed;
-		padding: min(20vh, 10rem) 1.67rem;
-		inset: 0 0 0 30%;
+		padding: 10rem 1.67rem;
+		inset: 0 0 0 33%;
 		background-color: var(--off-white);
 		flex-direction: column;
 
+		gap: 1.5rem;
 		transform: translateX(100%);
 		transition: transform 350ms ease-out;
 	}
@@ -195,6 +184,11 @@ header .title img {
 
 	#primary-navigation[data-visible="true"] ul {
 		transform: translateX(0%);
+	}
+
+	#primary-navigation ul li a {
+		color: var(--very-dark-blue);
+		font-size: 1.2rem;
 	}
 
 	.mobile-nav-toggle {
@@ -248,6 +242,8 @@ header .title img {
 		grid-template-columns: repeat(2, 1fr);
 		grid-template-rows: 1fr auto;
 		gap: var(--spacing2);
+
+		height: 100%;
 	}
 
 	.hero-image {
@@ -256,7 +252,7 @@ header .title img {
 	}
 
 	.hero-title {
-		font-size: 4rem;
+		font-size: clamp(3.5rem, 4vw, 4rem);
 		line-height: 1;
 		max-width: 9ch;
 		align-self: center;
@@ -281,10 +277,11 @@ header .title img {
 	gap: var(--spacing2);
 }
 .new-stories-title {
-	font-size: 2.75rem;
+	font-size: 2rem;
 	font-weight: var(--fs-700);
 	color: var(--soft-orange);
-	/* margin-block-end: var(--spacing1);*/
+
+	line-height: 1;
 }
 
 .new-story {
@@ -313,11 +310,15 @@ header .title img {
 }
 
 .new-story p {
-	margin-block-end: var(--spacing1);
+	margin-block-end: var(--spacing2);
 	color: var(--grayish-blue);
 }
 
-@media (min-width: 768px) and (max-width: 992px) {
+.new-story:last-of-type p {
+	margin-block-end: 0;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
 	.new-stories-container {
 		display: block;
 		column-count: 3;
@@ -352,26 +353,22 @@ header .title img {
 	}
 }
 
-.numbered-story:hover h3 {
-	color: var(--soft-red);
-}
-
 .numbered-story {
 	text-decoration: none;
 
 	display: grid;
-	grid-template-columns: min(33%, 13.4rem) 2fr;
+	grid-template-columns: min(6.66rem, 13.4rem) 2fr;
 	grid-template-rows: 1fr;
 	gap: var(--spacing1);
 }
 
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 576px) and (max-width: 991px) {
 	.numbered-story {
 		align-items: end;
 	}
 }
 
-@media screen and (min-width: 768px) and (max-width: 992px) {
+@media screen and (min-width: 768px) and (max-width: 991px) {
 	.numbered-story {
 		grid-template-columns: 1fr;
 	}
@@ -385,13 +382,17 @@ header .title img {
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-template-rows: 1fr;
-	align-items: center;
+	justify-content: space-between;
 }
 
 .numbered-story-details h3 {
 	color: var(--very-dark-blue);
 	font-weight: var(--fs-800);
 	font-size: 1.14rem;
+}
+
+.numbered-story-details:hover h3 {
+	color: var(--soft-red);
 }
 
 .numbered-story-details h3::before {
@@ -402,7 +403,7 @@ header .title img {
 	font-size: 2rem;
 	line-height: 1;
 
-	margin-block: var(--spacing);
+	margin-block-end: var(--spacing);
 }
 
 .numbered-story-details p {
@@ -426,25 +427,25 @@ header .title img {
 	main {
 		max-width: 74rem;
 		margin: 0 auto;
+		padding: 0 var(--spacing3);
 	}
 
-	header,
 	section {
 		padding: 0;
 	}
 
 	header {
-		--logo-size: 3.33rem;
+		--logo-size: 2rem;
 		padding-block: 4rem;
 	}
 
 	#primary-navigation ul {
 		flex-direction: row;
-		gap: var(--spacing2);
+		gap: var(--spacing3);
 	}
 
 	#primary-navigation ul li a {
-		font-size: 1.46rem;
+		font-size: 1rem;
 	}
 
 	main {
